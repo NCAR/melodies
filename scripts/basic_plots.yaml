@@ -6,8 +6,9 @@ analysis:
 
 
 model:
-  RACM_ESRL: # Regional Atmospheric Chemistry Model/Earth System Research Lab
-    files: /Users/fillmore/Data/MELODIES-MONET/example_model_data/wrfchem_example/racm_esrl/*
+  # Regional Atmospheric Chemistry Model/Earth System Research Lab
+  RACM_ESRL:
+    files: /Users/fillmore/MELODIES/racm_esrl/*
     mod_type: 'wrfchem'
     mod_kwargs:
       mech: 'racm_esrl_vcp'
@@ -40,7 +41,7 @@ model:
 obs:
   airnow:
     use_airnow: True
-    filename: /Users/fillmore/EarthSystem/MELODIES-MONET/melodies_monet/data/AIRNOW_20190901_20190930.nc
+    filename: /Users/fillmore/MELODIES/surface_obs/AIRNOW_20190901_20190930.nc
     obs_type: pt_sfc
     variables:
       OZONE:
