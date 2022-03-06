@@ -1,0 +1,89 @@
+analysis:
+  start_time: '2019-09-05-06:00:00' #UTC
+  end_time:   '2019-09-06-06:00:00' #UTC
+  output_dir: /Users/fillmore/MELODIES/plots
+  debug: True
+
+
+model:
+  RACM_ESRL: # Regional Atmospheric Chemistry Model/Earth System Research Lab
+    files: /Users/fillmore/Data/MELODIES-MONET/example_model_data/wrfchem_example/racm_esrl/*
+    mod_type: 'wrfchem'
+    mod_kwargs:
+      mech: 'racm_esrl_vcp'
+    radius_of_influence: 12000 # meters
+    mapping: # model species name : obs species name
+      airnow:
+        o3: "OZONE"
+    projection: None
+    plot_kwargs:
+      color: 'magenta'
+      marker: 's'
+      linestyle: '-'
+
+  RACM_ESRL_VCP:
+    files: /Users/fillmore/Data/MELODIES-MONET/example_model_data/wrfchem_example/racm_esrl_vcp/*
+    mod_type: 'wrfchem'
+    mod_kwargs:
+      mech: 'racm_esrl_vcp'
+    radius_of_influence: 12000 # meters
+    mapping: #model species name : obs species name
+      airnow:
+        o3: "OZONE"
+    projection: None
+    plot_kwargs:
+      color: 'gold'
+      marker: 'o'
+      linestyle: '-'
+
+
+obs:
+  airnow:
+    use_airnow: True
+    filename: /Users/fillmore/EarthSystem/MELODIES-MONET/melodies_monet/data/AIRNOW_20190901_20190930.nc
+    obs_type: pt_sfc
+    variables:
+      OZONE:
+        unit_scale: 1
+        unit_scale_method: '*'
+        nan_value: -1.0
+        ylabel_plot: 'Ozone (ppbv)'
+        vmin_plot: 15.0
+        vmax_plot: 55.0
+        vdiff_plot: 20.0
+        nlevels_plot: 21
+
+
+plots:
+
+  plot_timeseries_group:
+    type: 'timeseries'
+    fig_kwargs:
+      figsize: [12, 6]
+    default_plot_kwargs:
+      linewidth: 2.0
+      markersize: 10
+    text_kwargs:
+      fontsize: 24
+    domain_type: ['all','state_name','epa_region']
+    domain_name: ['CONUS','CA','R9']
+    data: ['airnow_RACM_ESRL','airnow_RACM_ESRL_VCP']
+    data_proc:
+      rem_obs_nan: True
+      ts_select_time: 'time_local'
+      ts_avg_window: 'H'
+      set_axis: True
+
+  plot_overlay_group:
+    type: 'spatial_overlay'
+    fig_kwargs:
+      states: True
+      figsize: [10, 5]
+    text_kwargs:
+      fontsize: 16
+    domain_type: ['all','state_name','epa_region']
+    domain_name: ['CONUS','CA','R9']
+    data: ['airnow_RACM_ESRL','airnow_RACM_ESRL_VCP']
+    data_proc:
+      rem_obs_nan: True
+      set_axis: True
