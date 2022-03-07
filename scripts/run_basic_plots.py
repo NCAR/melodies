@@ -19,7 +19,7 @@ print(an.start_time)
 print(an.end_time)
 
 an.open_obs()
-an.obs['airnow'].obj
+an.obs['AirNow'].obj
 
 an.pair_data()
 
