@@ -24,9 +24,9 @@ model:
 
   # Community Atmosphere Model Chemistry
   CAM_Chem:
-    files: /Users/fillmore/MELODIES/cam_chem/CAM_chem_merra2_FCSD_1deg_QFED_world_201909-01-09_small_sfc.nc
+    files: /Users/fillmore/MELODIES/cam_chem/*
     mod_type: 'cesm_fv'
-    radius_of_influence: 1.5e5 # meters
+    radius_of_influence: 150000 # meters
     mapping: # model species name : obs species name
       AirNow:
         O3: "OZONE"
@@ -49,7 +49,7 @@ obs:
         nan_value: -1.0
         ylabel_plot: 'Ozone (ppbv)'
         vmin_plot: 15.0
-        vmax_plot: 55.0
+        vmax_plot: 70.0
         vdiff_plot: 20.0
         nlevels_plot: 21
 
@@ -65,8 +65,8 @@ plots:
       markersize: 10
     text_kwargs:
       fontsize: 24
-    domain_type: ['all','state_name','epa_region']
-    domain_name: ['CONUS','CA','R9']
+    domain_type: ['all']
+    domain_name: ['CONUS']
     data: ['AirNow_RACM_ESRL','AirNow_CAM_Chem']
     data_proc:
       rem_obs_nan: True
