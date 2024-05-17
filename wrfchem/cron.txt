@@ -1,0 +1,2 @@
+30 8 * * * /opt/pbs/bin/qsub -l walltime=02:00:00 -A P19010000 -l select=1:ncpus=1 -q casper@casper-pbs -- /usr/bin/bash /glade/u/home/fillmore/MELODIES/script.sh >& ~/logs/script-`/usr/bin/date +\%Y\%m\%d-\%H\%M`.log
+30 10 * * * /opt/pbs/bin/qsub -l walltime=02:00:00 -A P19010000 -l select=1:ncpus=1 -q casper@casper-pbs -- /glade/u/home/fillmore/miniconda3/bin/python /glade/u/home/fillmore/MELODIES/wrfchem/script.py >& ~/logs/wrfchem-`/usr/bin/date +\%Y\%m\%d-\%H\%M`.log
