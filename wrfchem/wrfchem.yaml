@@ -10,7 +10,8 @@ model:
   WRF-Chem:
     # files: $HOME/Data/WRF-Chem-Forecast/wrfout_hourly_d01_YYYY-MM-DD_*
     # files: '/glade/p/acom/acom-da/rkumar/firex_aq/YYYYMMDD/wrf/wrfout_hourly_d01_YYYY-MM-DD_*'
-    files: '/glade/campaign/acom/acom-da/rkumar/AQ_WATCH/YYYYMMDD/wrf/wrfout_hourly_d02_YYYY-MM-DD_*'
+    # files: '/glade/campaign/acom/acom-da/rkumar/AQ_WATCH/YYYYMMDD/wrf/wrfout_hourly_d02_YYYY-MM-DD_*'
+    files: '/glade/campaign/acom/acom-da/shawnh/AQ_WATCH/YYYYMMDD/wrf/wrfout_hourly_d02_YYYY-MM-DD_*'
     mod_type: 'wrfchem'
     mod_kwargs:
       mech: 'racm_esrl_vcp'
